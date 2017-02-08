@@ -71,16 +71,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
         return false
     }
     
+    var token: String = "dummy-token"
+    
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         if (user != nil) {
             user!.getTokenWithCompletion({ token, error in
-                SwaggerClientAPI.customHeaders["Authorization"] = "Bearer " + token!;
-                let request = DefaultAPI.userItemApiGetWithRequestBuilder()
-                request.execute({ response, error in
-                    if (response != nil) {
-                        //controller?.dismiss(animated: true, completion: nil)
-                    }
-                });
+                self.token = token!
             })
         }
 

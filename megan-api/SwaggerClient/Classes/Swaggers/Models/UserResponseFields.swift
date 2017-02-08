@@ -19,8 +19,8 @@ open class UserResponseFields: JSONEncodable {
     public var isLatexAllergic: Bool?
     public var isStrokee: Bool?
     public var isStroker: Bool?
-    public var joinDate: String?
-    public var lastOnlineDatetime: String?
+    public var joinDate: Date?
+    public var lastOnlineDatetime: Date?
     public var nickname: String?
     public var phone: String?
 

@@ -16,7 +16,6 @@
 		D74E2D31B04A2063E0F34FE5 /* Pods_megan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34F4218B571794D1341ADBD /* Pods_megan.framework */; };
 		EA0D1D421E4A9E3D0076C024 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D1D411E4A9E3D0076C024 /* LoginViewController.swift */; };
 		EA0D1D481E4B3C730076C024 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA0D1D471E4B3C730076C024 /* GoogleService-Info.plist */; };
-		EA6907251E4A9C710077F716 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA6907241E4A9C710077F716 /* Auth0.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		A34F4218B571794D1341ADBD /* Pods_megan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_megan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D1D411E4A9E3D0076C024 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA0D1D471E4B3C730076C024 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EA6907241E4A9C710077F716 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Auth0.plist; sourceTree = "<group>"; };
 		FFD0AA4F134B72EE4351A937 /* Pods-megan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-megan.release.xcconfig"; path = "Pods/Target Support Files/Pods-megan/Pods-megan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +84,6 @@
 				6F5A69641E259CB7002600B0 /* Assets.xcassets */,
 				6F5A69661E259CB7002600B0 /* LaunchScreen.storyboard */,
 				6F5A69691E259CB7002600B0 /* Info.plist */,
-				EA6907241E4A9C710077F716 /* Auth0.plist */,
 				EA0D1D411E4A9E3D0076C024 /* LoginViewController.swift */,
 			);
 			path = megan;
@@ -166,7 +163,6 @@
 				6F5A69651E259CB7002600B0 /* Assets.xcassets in Resources */,
 				EA0D1D481E4B3C730076C024 /* GoogleService-Info.plist in Resources */,
 				6F5A69631E259CB7002600B0 /* Main.storyboard in Resources */,
-				EA6907251E4A9C710077F716 /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

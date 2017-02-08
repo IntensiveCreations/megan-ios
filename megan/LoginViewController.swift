@@ -40,6 +40,22 @@ class LoginViewController: UIViewController {
         
     }
     
+    
+    @IBAction func btn2(_ sender: UIButton) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let token = appDelegate.token;
+        
+        SwaggerClientAPI.customHeaders["Authorization"] = "Bearer " + token;
+        let request = DefaultAPI.userItemApiGetWithRequestBuilder()
+        request.execute({ response, error in
+            if (response != nil) {
+                //controller?.dismiss(animated: true, completion: nil)
+            }
+        });
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

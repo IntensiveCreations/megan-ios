@@ -216,8 +216,8 @@ class Decoders {
             instance.isLatexAllergic = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_latex_allergic"] as AnyObject?)
             instance.isStrokee = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_strokee"] as AnyObject?)
             instance.isStroker = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["is_stroker"] as AnyObject?)
-            instance.joinDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["join_date"] as AnyObject?)
-            instance.lastOnlineDatetime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["last_online_datetime"] as AnyObject?)
+            instance.joinDate = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["join_date"] as AnyObject?)
+            instance.lastOnlineDatetime = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["last_online_datetime"] as AnyObject?)
             instance.nickname = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nickname"] as AnyObject?)
             instance.phone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["phone"] as AnyObject?)
             return instance
