@@ -7,18 +7,38 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+//import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+//import FirebaseTwitterAuthUI
+import FBSDKLoginKit
+import SwaggerClient
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FIRApp.configure()
+        let authUI = FUIAuth.defaultAuthUI()!
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI.delegate = self
+        
+        authUI.isSignInWithEmailHidden = true;
+        
+        let providers: [FUIAuthProvider] = [
+//            FUIGoogleAuth(),
+            FUIFacebookAuth(),
+//            FUITwitterAuth(),
+            ]
+        authUI.providers = providers
         return true
     }
-
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -41,6 +61,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // other URL handling goes here.
+        return false
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        if (user != nil) {
+            user!.getTokenWithCompletion({ token, error in
+                SwaggerClientAPI.customHeaders["Authorization"] = "Bearer " + token!;
+                let request = DefaultAPI.userItemApiGetWithRequestBuilder()
+                request.execute({ response, error in
+                    if (response != nil) {
+                        //controller?.dismiss(animated: true, completion: nil)
+                    }
+                });
+            })
+        }
 
+    }
 }
 

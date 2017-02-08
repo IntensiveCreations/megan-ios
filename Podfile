@@ -9,5 +9,14 @@ target 'megan' do
   pod 'Alamofire'
   pod 'AFNetworking'#, '~> 3.0'
   pod 'SwiftyJSON'#, '~> 2.3'
-
+  #pod 'Lock'#, '~> 1.27'
+  #pod 'Auth0'#, '~> 1.1'
+  pod 'Firebase/Auth'
+  pod 'FirebaseUI/Auth'
+  
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/Facebook'
+  pod 'FirebaseUI/Twitter'
+  
+  pod 'SwaggerClient', :path => '/tony/projects/megan-ios/megan-api/'
 end
